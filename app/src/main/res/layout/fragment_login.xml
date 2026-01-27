@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        tools:context=".ui.login.LoginFragment"
+        tools:layout_editor_absoluteX="-6dp"
+        tools:layout_editor_absoluteY="-37dp">
+
+        <EditText
+            android:id="@+id/edtUsuario"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:hint="Usuario"
+            app:layout_constraintBottom_toTopOf="@+id/edtPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txTitulo" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtUsuario" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="253dp"
+            android:layout_height="57dp"
+            android:layout_marginBottom="394dp"
+            android:text="Iniciar sesión"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+
+        <TextView
+            android:id="@+id/txTitulo"
+            android:layout_width="228dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="24dp"
+            android:text="Inicio Sesion"
+            android:textSize="35dp"
+            app:layout_constraintBottom_toTopOf="@+id/edtUsuario"
+            app:layout_constraintEnd_toEndOf="@+id/edtUsuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
