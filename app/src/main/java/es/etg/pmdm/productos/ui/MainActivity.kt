@@ -23,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         const val BASE_URL = "https://api.restful-api.dev/"
         const val BASE_URL_DETALLE = "https://raw.githubusercontent.com/ManuelPavonBuendia/provedores/main/"
         lateinit var database: ProductoDatabase
+        const val NOMBRE_BD="producto_database"
+        const val CARGADO_BD="Datos cargados desde la base de datos"
+
+        const val PROVEDOR_NO_ENCONTRADO="Proveedor no encontrado"
+        const val ERROR_CONSULTAR_SERVICIO="Error al consultar el servicio"
+        const val SIN_DATOS="Sin datos"
+        const val DATOS_CARGADOS="Datos cargados"
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -36,8 +43,8 @@ class MainActivity : AppCompatActivity() {
         database = Room.databaseBuilder(
             applicationContext,
             ProductoDatabase::class.java,
-            "producto_database"
-        ).build()
+            NOMBRE_BD
+            ).build()
         //Implementación de pulsar el botón
         binding.btnConsultar.setOnClickListener {
             consultar(binding.edtIdInput.text.toString())
@@ -59,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     binding.txtNombre.text = productoDb.nombre
                     binding.txtData.text = productoDb.descripcion
                     binding.txtProveedor.text = proveedorDb.nombre
-                    Toast.makeText(this@MainActivity, "Datos cargados desde la base de datos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, CARGADO_BD, Toast.LENGTH_SHORT).show()
                 } else {
                     // No está en la BD, hacemos la consulta a la API
                     consultarDesdeApi(idProducto)
@@ -80,15 +87,15 @@ class MainActivity : AppCompatActivity() {
                     val productoId = producto.id.toInt()
                     binding.txtId.text = productoId.toString()
                     binding.txtNombre.text = producto.nombre
-                    val productoDescripcion = producto.descripcion?.entries?.joinToString { "${it.key}: ${it.value}" } ?: "Sin datos"
+                    val productoDescripcion = producto.descripcion?.entries?.joinToString { "${it.key}: ${it.value}" } ?: SIN_DATOS
                     binding.txtData.text = productoDescripcion
-                    val proveedorNombre = proveedor?.nombre ?: "Proveedor no encontrado"
+                    val proveedorNombre = proveedor?.nombre ?: PROVEDOR_NO_ENCONTRADO
                     binding.txtProveedor.text = proveedorNombre
 
                     // Guardar en la BD
                     guardar(productoId, producto.nombre, productoDescripcion, proveedorNombre)
                 } else {
-                    Toast.makeText(this@MainActivity, "Error al consultar el servicio", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@MainActivity, ERROR_CONSULTAR_SERVICIO, Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -119,7 +126,7 @@ class MainActivity : AppCompatActivity() {
             // Insertamos el cliente
             proveedorDao.insert(proveedor)
             runOnUiThread {
-                Toast.makeText(this@MainActivity, "Todo cargado", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, DATOS_CARGADOS, Toast.LENGTH_LONG).show()
             }
         }
 
