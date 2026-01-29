@@ -42,56 +42,17 @@
         android:text="Consultar Producto"
         android:layout_marginBottom="16dp" />
 
-    <!-- ID -->
-    <TextView
+    <ListView
+        android:id="@+id/listViewProductos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ID" />
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/darker_gray" />
 
-    <TextView
-        android:id="@+id/txtId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
 
-    <!-- Nombre -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nombre" />
-
-    <TextView
-        android:id="@+id/txtNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
-
-    <!-- Data -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Descripcion" />
-
-    <TextView
-        android:id="@+id/txtData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Proveedor" />
-
-    <TextView
-        android:id="@+id/txtProveedor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp" />
-
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="226dp" />
 
 </LinearLayout>
